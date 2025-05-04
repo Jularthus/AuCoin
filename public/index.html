@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Send Notification</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+    <div class="header">
+    <h1>Au Coin!</h1>
+    <img src="./img/canard.png" alt="Logo" class="logo"/>
+</div>
+    <div id="description">
+      Le service qui permet d'envoyer des messages pendant que je me tue en piscine !<br><br>
+      Ça s'appelle Au Coin parce que le canard c'est une icône en informatique,<br>
+      et aussi parce que je verrai ton message dans le coin de mon ordi !<br><br>
+      J'adore l'humour!
+    </div>
+    <br>
+  <form id="notifForm">
+    <input type="text" id="text" name="text" placeholder="Votre message..." required>
+    <button type="submit">Envoyer!</button>
+  </form>
+
+    <script src="app.js"></script>
+</body>
+</html>
