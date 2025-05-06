@@ -1,10 +1,15 @@
-file="$HOME/.config/fortune/newFortune.txt"
+#!/bin/bash
 
-if [[ ! -s "$file" ]]; then
-  shuf -n 1 "$HOME/.config/fortune/fixedFortune.txt"
-  exit 0
+if [ -e "$HOME/.fortune" ]; then
+  file="$HOME/.config/fortune/fortune.txt"
+
+  if [[ ! -s "$file" ]]; then
+    # shuf -n 1 "$HOME/.config/fortune/fixedFortune.txt"
+    echo ""
+    exit 0
+  fi
+
+  IFS= read -r line <"$file"
+  echo "$line"
+  tail -n 2 "$file" >"$file.tmp" && mv "$file.tmp" "$file"
 fi
-
-IFS= read -r line < "$file"
-echo "$line"
-tail -n +2 "$file" > "$file.tmp" && mv "$file.tmp" "$file"

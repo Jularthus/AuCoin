@@ -5,11 +5,14 @@ form.addEventListener("submit", async (e) => {
 
   const text = document.getElementById("text").value.trim();
 
-  // Basic client-side sanitization
-  if (!text || text.length > 500) {
+  if (!text || text.length > 50) {
     alert("Texte trop long!");
     return;
   }
+
+  const password = prompt(
+    "Mot de passe secret pour envoyer :\n",
+  );
 
   try {
     const res = await fetch("/post", {
@@ -17,12 +20,27 @@ form.addEventListener("submit", async (e) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({
+        text: text,
+        password: password,
+      }),
     });
 
-    if (!res.ok) throw new Error("Failed to send");
+    if (res.status === 401) {
+      alert("Mauvais mot de passe!");
+      return;
+    }
 
-    alert("Message envoyé: ".concat(text));
+    if (!res.ok) {
+      throw new Error("Failed to send");
+    }
+
+    const data = await res.json();
+    alert(
+      `Message envoyé: ${text}\nJe le lirai sous peu!\nÀ l'heure actuelle il y a ${data.nbr} ${
+        data.nbr <= 1 ? "message" : "messages"
+      } en attente (dont le tien)!`,
+    );
     form.reset();
   } catch (err) {
     console.error(err);
