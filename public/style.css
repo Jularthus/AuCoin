@@ -18,7 +18,7 @@ body {
 }
 
 .logo {
-  height: 10rem; /* will match h1 font size (2rem) */
+  height: 10rem;
   aspect-ratio: 1 / 1;
   object-fit: contain;
 }
@@ -30,13 +30,13 @@ h1 {
 }
 
 #description {
-  background-color: #24382f; /* same dark leafy green as form */
-  color: #cce8db; /* soft mint green for readability */
+  background-color: #24382f;
+  color: #cce8db;
   padding: 1.5rem;
   border-radius: 8px;
   max-width: 600px;
   text-align: center;
-  /* margin-bottom: 2rem; */
+  margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(34, 51, 42, 0.6);
   line-height: 1.6;
   font-size: 1rem;
@@ -46,6 +46,7 @@ form {
   background: #24382f; /* dark leafy green */
   padding: 2rem;
   border-radius: 10px;
+  margin-bottom: 2rem;
   box-shadow: 0 0 15px rgba(34, 51, 42, 0.8);
   width: 100%;
   max-width: 400px;

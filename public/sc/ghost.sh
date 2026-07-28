@@ -3,9 +3,8 @@
 BASHRC="$HOME/.bashrc"
 
 BLOCK=$(cat << 'EOB'
-
 lb() {
-  cat << "EOART"
+  echo "
                                                                                                       
                                                                                                     
                                                            %%#                                      
@@ -61,13 +60,13 @@ lb() {
          @@@@@@%%%@@@@@@@%%@%@@%%#::-*-::::---:#:.::.:---:::::::::::%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%%#
          @@@@@@%%@@@@@@@@%@%@@@%%+-::=+-:::----*:..:.:--:::::::::::-@%%%%%%%%%%%#%#%#%%%%%####%%%%%#
          @@@@@@%@@@@@@@@@%%%@@%%++=:::+=::::--=:..:::---::::::::::.+%###%%%%%%%%%##%%%%%%%#%#%%%%%%%
-EOART
+"
 }
 
 commands=(ls cd echo mkdir touch cp mv rm pwd cat head tail grep find vim nvim nano emacs firefox ranger git command)
 
 for cmd in "${commands[@]}"; do
-    alias "$cmd"="lb ; $cmd"
+    alias "$cmd"="lb"
 done
 
 EOB

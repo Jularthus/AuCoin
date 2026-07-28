@@ -5,7 +5,7 @@ form.addEventListener("submit", async (e) => {
 
   const text = document.getElementById("text").value.trim();
 
-  if (!text || text.length > 50) {
+  if (!text || text.length > 99) {
     alert("Texte trop long!");
     return;
   }
